@@ -17,7 +17,10 @@ class LoginPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-                onPressed: () {Navigator.pushReplacementNamed(context, '/home_page');}, child: const Text('Iniciar Sesión')),
+                onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (BuildContext) => HomePage()));}, child: const Text('Iniciar Sesión')),
           )
         ],
       ),

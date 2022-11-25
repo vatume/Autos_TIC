@@ -5,15 +5,6 @@ void main() {
   runApp(const DiarioApp());
 }
 
-const List<Color> colorOptions = [
-  Colors.pink,
-  Colors.blue,
-  Colors.yellow,
-  Colors.orange,
-  Colors.teal,
-  Colors.green,
-];
-
 class DiarioApp extends StatefulWidget {
   const DiarioApp({Key? key}) : super(key: key);
   @override
@@ -26,12 +17,6 @@ class _DiarioAppState extends State<DiarioApp> {
 
   Color colorscheme = Colors.green;
 
-  void onColorSelected(int value) {
-    setState(() {
-      colorSelected = value;
-      colorscheme = colorOptions[colorSelected];
-    });
-  }
 
   void onLightMode() {
     setState(() {
@@ -49,13 +34,7 @@ class _DiarioAppState extends State<DiarioApp> {
         brightness: useLightMode ? Brightness.light : Brightness.dark,
       ),
       title: "Misión TIC",
-      home: HomePage(
-        onLightMode: onLightMode,
-        onSelectedColor: onColorSelected,
-        useLightMode: useLightMode,
-        colorSelected: colorSelected,
-        colorScheme: colorscheme,
-      ),
+      home: HomePage(),
     );
   }
 }
