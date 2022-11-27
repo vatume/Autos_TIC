@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:midiarioapp/pages/home_page.dart';
+import 'package:midiarioapp/pages/login_page.dart';
 
 void main() {
   runApp(const DiarioApp());
@@ -17,7 +17,6 @@ class _DiarioAppState extends State<DiarioApp> {
 
   Color colorscheme = Colors.green;
 
-
   void onLightMode() {
     setState(() {
       useLightMode = !useLightMode;
@@ -33,8 +32,8 @@ class _DiarioAppState extends State<DiarioApp> {
         colorSchemeSeed: colorscheme,
         brightness: useLightMode ? Brightness.light : Brightness.dark,
       ),
-      title: "Misión TIC",
-      home: HomePage(),
+      title: "Autos_TIC",
+      home: const LoginPage(),
     );
   }
 }
