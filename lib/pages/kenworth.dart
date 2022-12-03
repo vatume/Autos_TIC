@@ -39,6 +39,14 @@ class Kenworth extends StatelessWidget {
               DataCell(Text('Camión de Carga')),
             ]),
           ])))
-        ]));
+        ]),
+        floatingActionButton: FloatingActionButton.large(
+          onPressed: () {},
+          backgroundColor: Colors.white,
+          child: const Text(
+            'Comprar',
+            style: TextStyle(color: Colors.black, fontSize: 18),
+          ),
+        ));
   }
 }

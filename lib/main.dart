@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:midiarioapp/pages/login_page.dart';
+import 'package:AutosTic/models/firebaseuser.dart';
+import 'package:AutosTic/screens/wrapper.dart';
+import 'package:AutosTic/services/auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const DiarioApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const AutosApp());
 }
 
-class DiarioApp extends StatefulWidget {
-  const DiarioApp({Key? key}) : super(key: key);
+class AutosApp extends StatefulWidget {
+  const AutosApp({Key? key}) : super(key: key);
   @override
-  State<DiarioApp> createState() => _DiarioAppState();
+  State<AutosApp> createState() => _AutosAppState();
 }
 
-class _DiarioAppState extends State<DiarioApp> {
+class _AutosAppState extends State<AutosApp> {
   var useLightMode = false;
   int colorSelected = 5;
 
@@ -25,15 +31,27 @@ class _DiarioAppState extends State<DiarioApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: colorscheme,
-        brightness: useLightMode ? Brightness.light : Brightness.dark,
+    return StreamProvider<FirebaseUser?>.value(
+      value: AuthService().user,
+      initialData: null,
+      child: MaterialApp(
+        theme: ThemeData(
+            brightness: Brightness.light,
+            primaryColor: Colors.black,
+            buttonTheme: ButtonThemeData(
+                buttonColor: Colors.black,
+                textTheme: ButtonTextTheme.primary,
+                colorScheme: Theme.of(context)
+                    .colorScheme
+                    .copyWith(secondary: Colors.white)),
+            fontFamily: 'Georgia',
+            textTheme: const TextTheme(
+              headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+              headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+              headline2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+            )),
+        home: Wrapper(),
       ),
-      title: "Autos_TIC",
-      home: const LoginPage(),
     );
   }
 }

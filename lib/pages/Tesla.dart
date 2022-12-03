@@ -38,6 +38,14 @@ class Tesla extends StatelessWidget {
               DataCell(Text('Electrico')),
             ]),
           ])))
-        ]));
+        ]),
+        floatingActionButton: FloatingActionButton.large(
+          onPressed: () {},
+          backgroundColor: Colors.white,
+          child: const Text(
+            'Comprar',
+            style: TextStyle(color: Colors.black, fontSize: 18),
+          ),
+        ));
   }
 }
