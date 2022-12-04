@@ -1,5 +1,6 @@
+import 'package:AutosTic/screens/home/out.dart';
 import 'package:flutter/material.dart';
-import './home_page.dart';
+
 
 class Kenworth extends StatelessWidget {
   const Kenworth({super.key});
@@ -40,13 +41,19 @@ class Kenworth extends StatelessWidget {
             ]),
           ])))
         ]),
-        floatingActionButton: FloatingActionButton.large(
-          onPressed: () {},
-          backgroundColor: Colors.white,
-          child: const Text(
-            'Comprar',
-            style: TextStyle(color: Colors.black, fontSize: 18),
-          ),
-        ));
+        floatingActionButton: FloatingActionButton.large(onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext) => (Out()),
+              ));
+        },
+        backgroundColor: Colors.white,
+        child: const Text(
+          'Salir',
+          style: TextStyle(color: Colors.black, fontSize: 18),
+        ),
+        )
+        );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:AutosTic/screens/home/out.dart';
 import 'package:flutter/material.dart';
 
 class Tesla extends StatelessWidget {
@@ -40,10 +41,17 @@ class Tesla extends StatelessWidget {
           ])))
         ]),
         floatingActionButton: FloatingActionButton.large(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext) => (Out()),
+              ),
+            );
+          },
           backgroundColor: Colors.white,
           child: const Text(
-            'Comprar',
+            'Salir',
             style: TextStyle(color: Colors.black, fontSize: 18),
           ),
         ));
